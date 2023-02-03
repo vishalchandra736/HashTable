@@ -1,6 +1,7 @@
 package com.blz.hashtable;
 
-public class HashMap <K, V>{
+public class HashMap<K, V> {
+
     LinkedLists<K> list;
 
 
@@ -18,11 +19,10 @@ public class HashMap <K, V>{
     public void add(K key, V value) {
         MyMapNode<K, V> mapNode = (MyMapNode<K, V>) this.list.search(key);
 
-        if(mapNode == null) {
+        if (mapNode == null) {
             mapNode = new MyMapNode<>(key, value);
             this.list.append(mapNode);
-        }
-        else
+        } else
             mapNode.setValue(value);
     }
 
