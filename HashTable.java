@@ -18,9 +18,14 @@ public class HashTable {
         }
 
         System.out.println(hashMap);
+        System.out.println();
         for (String word : words) {
             int frequency = hashMap.get(word);
             System.out.println("Frequency of '" + word + "' : \t" + frequency);
         }
+
+        System.out.println("\nHashMap after removing the word 'avoidable' : \n");
+        hashMap.remove("avoidable");
+        System.out.println(hashMap);
     }
 }

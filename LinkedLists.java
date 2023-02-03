@@ -93,6 +93,23 @@ public class LinkedLists<K> {
         return tempNode;
     }
 
+    public void pop(K dataToRemove) {
+        INode<K> thisNode = head;
+
+        if (dataToRemove == head.getKey()) {
+            thisNode = head.getnext();
+            head = thisNode;
+        }
+        else {
+            INode<K> previous = null;
+            while (thisNode.getKey() != dataToRemove) {
+                previous = thisNode;
+                thisNode = thisNode.getnext();
+            }
+            previous.setnext(thisNode.getnext());
+        }
+    }
+
     public INode<K> popLast() {
         INode<K> tempNode = head;
 

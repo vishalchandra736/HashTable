@@ -19,7 +19,7 @@ public class LinkedHashMap <K, V> {
         LinkedLists<K> linkedList = this.bucketArray.get(index);
 
         if(linkedList == null) {
-            linkedList = new LinkedLists<>();
+            linkedList = new LinkedLists<K>();
             this.bucketArray.set(index, linkedList);
         }
 
@@ -30,6 +30,17 @@ public class LinkedHashMap <K, V> {
         }
         else
             mapNode.setValue(value);
+    }
+
+    public void remove(K key){
+        int index = this.getBucketIndex(key);
+        LinkedLists<K> linkedList = this.bucketArray.get(index);
+
+        if(linkedList == null) {
+            System.out.println("\nNo entries!");
+        }
+
+        linkedList.pop(key);
     }
 
     public V get(K key) {
